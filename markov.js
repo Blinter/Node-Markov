@@ -18,6 +18,8 @@ class MarkovMachine {
   getRandomStartingWord = () => Array.from(this.chains.keys()).at(this.getRandom(this.chains.size));
   getRandomStartingWordCapitalized = () => {
     const capitalWords = Array.from(this.chains.keys()).filter(v=>/^[A-Z][^.]*$/.test(v));
+    if (capitalWords == null || capitalWords.length === 0)
+      return null;
     return capitalWords.at(this.getRandom(capitalWords.length));
   }
   getRandomWord = currentWord => Array.from(this.chains.get(currentWord)).at(this.getRandom(this.chains.get(currentWord).size));
