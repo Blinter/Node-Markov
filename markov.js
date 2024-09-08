@@ -5,7 +5,7 @@ class MarkovMachine {
     this.makeChains();
   }
   makeChains() {
-    for (let i = 0; i != this.words.length - 1; i++) {
+    for (let i = 0; i !== this.words.length - 1; i++) {
       if (!this.chains.has(this.words[i]))
         this.chains.set(this.words[i], new Set());
       if (!this.chains.get(this.words[i]).has(this.words[i + 1]))
