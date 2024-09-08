@@ -48,13 +48,13 @@ if (process.argv.length <= 2) {
     if (currentArguments[0] === "file") {
         currentArguments = currentArguments.slice(1);
         if (currentArguments.length === 0)
-            throw "file flag supplied file name not supplied.";
+            throw "file flag supplied but file name not supplied.";
 
         catFunction(currentArguments[0]);
     } else if (currentArguments[0].toLowerCase() === "url") {
         currentArguments = currentArguments.slice(1);
         if (currentArguments.length === 0)
-            throw "url flag supplied file name not supplied.";
+            throw "url flag supplied but URL not supplied.";
         try {
             new URL(currentArguments[0]);
         } catch {
@@ -62,6 +62,6 @@ if (process.argv.length <= 2) {
         }
         webCatFunction(currentArguments[0]);
     } else {
-        throw "Unknown type supplied " + currentArguments[0];
+        throw "Unknown type supplied " + currentArguments[0] + ", try file or url.";
     }
 }
